@@ -40,9 +40,6 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     private void displayResults(){
-        //int totalQuestions = result.testSize();
-        //int score = result.getGrade();
-        //double grade = score/totalQuestions;
         textViewResultTitle.setText("Results");
         textViewResults.setText(grade);
     }
