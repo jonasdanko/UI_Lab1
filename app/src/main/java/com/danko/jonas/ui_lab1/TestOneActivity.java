@@ -47,7 +47,7 @@ public class TestOneActivity extends AppCompatActivity {
 
         FakeDB db = new FakeDB();
         questionCounter = 0;
-        questionList = db.getQuestions();
+        questionList = db.getQuestionsTest1();
         result = new Results(questionList);
         questionCounterTotal = questionList.size();
         //Collections.shuffle(questionList);

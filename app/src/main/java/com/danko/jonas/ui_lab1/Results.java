@@ -54,7 +54,7 @@ public class Results implements Serializable{
         double tS = testSize();
         double mark = (s/tS)*100.0;
 
-        return "You have obtained " + (int)s + "/" + (int)tS + ". " + mark +  "%";
+        return "You have obtained " + (int)s + "/" + (int)tS + ". " + (int)mark +  "%";
     }
 
 }
