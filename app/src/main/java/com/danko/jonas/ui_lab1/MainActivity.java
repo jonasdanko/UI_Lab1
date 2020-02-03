@@ -6,11 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button buttonStartTestOne;
+    private ImageButton buttonSettings;
     private TextView textViewSlogan;
 
     @Override
@@ -20,6 +22,14 @@ public class MainActivity extends AppCompatActivity {
 
         textViewSlogan = findViewById(R.id.appSlogan);
         //textViewSlogan.setBackgroundColor(Color.parseColor("#81A4CD"));
+        buttonSettings = findViewById(R.id.buttonSettings);
+        buttonSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startSettings();
+            }
+        });
+
         buttonStartTestOne = findViewById(R.id.button_test1);
         buttonStartTestOne.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,6 +45,13 @@ public class MainActivity extends AppCompatActivity {
                 startTestTwo();
             }
         });
+
+
+    }
+
+    private void startSettings(){
+        Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+        startActivity(intent);
     }
 
     private void startTestOne(){

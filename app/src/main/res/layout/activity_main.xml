@@ -10,6 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageButton
+            android:id="@+id/buttonSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            app:srcCompat="@android:drawable/ic_menu_manage" />
+
         <Button
             android:id="@+id/button_test2"
             android:layout_width="200dp"
@@ -17,7 +26,7 @@
             android:layout_alignLeft="@+id/button_test1"
             android:layout_alignStart="@+id/button_test1"
             android:layout_below="@+id/button_test1"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="35dp"
             android:background="#3E7CB1"
             android:text="Test 2"
             android:textColor="#DBE4EE"
@@ -29,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/descriptor"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="40dp"
             android:background="#3E7CB1"
             android:text="Test 1"
             android:textColor="#DBE4EE"
@@ -41,8 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/appSlogan"
-            android:layout_marginTop="19dp"
+            android:layout_centerVertical="true"
             android:text="Select a test to attempt!"
             android:textAlignment="center"
             android:textColor="@android:color/black"
@@ -55,7 +63,7 @@
             android:layout_height="100dp"
             android:layout_below="@+id/appName"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="20dp"
             android:text="Welcome to my practice test app!"
             android:textAlignment="center"
             android:textColor="@android:color/black"
@@ -72,8 +80,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="29dp"
+            android:layout_below="@+id/buttonSettings"
+            android:layout_marginTop="18dp"
             android:text="Practice Test App"
             android:textAlignment="center"
             android:textColor="@android:color/black"
@@ -84,6 +92,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.113" />
+
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
