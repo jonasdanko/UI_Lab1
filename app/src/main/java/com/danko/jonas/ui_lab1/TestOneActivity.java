@@ -29,6 +29,7 @@ public class TestOneActivity extends AppCompatActivity {
     private boolean answered;
     private int numCorrect;
     private Results result;
+    
 
 
     @Override
