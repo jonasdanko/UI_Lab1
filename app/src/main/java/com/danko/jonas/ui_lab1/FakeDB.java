@@ -40,13 +40,19 @@ public class FakeDB {
         questionsTest1.add(q9);
         Question q10 = new Question("What is 4+2x3?", "10", "18", "10", "11", 1);
         questionsTest1.add(q10);
+        /*
         Question q11 = new Question("What is the square root of 64?", "8", "4", "6", "16", 1);
         questionsTest1.add(q11);
         Question q12 = new Question("What is 5 in binary?", "110", "101", "111", "011", 2);
         questionsTest1.add(q12);
+        */
     }
 
-    public List<Question> getQuestionsTest1(){
-        return questionsTest1;
+    public List<Question> getQuestionsTest1(int size){
+        List<Question> finalQuestionList = new ArrayList<>();
+        for(int i = 0 ; i<size ; ++i){
+            finalQuestionList.add(questionsTest1.get(i));
+        }
+        return finalQuestionList;
     }
 }

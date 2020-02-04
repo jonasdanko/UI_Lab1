@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.List;
 
 public class TestOneActivity extends AppCompatActivity {
@@ -29,7 +31,7 @@ public class TestOneActivity extends AppCompatActivity {
     private boolean answered;
     private int numCorrect;
     private Results result;
-    
+
 
 
     @Override
@@ -46,12 +48,19 @@ public class TestOneActivity extends AppCompatActivity {
         rb4 = findViewById(R.id.radioButton4);
         buttonConfirmAnswer = findViewById(R.id.buttonConfirm);
 
+        Bundle bundle = getIntent().getExtras();
+        String numQuestions = bundle.getString("NUM_QUESTIONS");
+        String passingGrade = bundle.getString("PASSING_GRADE");
+        Log.d("tag", passingGrade);
+        int nQ = Integer.parseInt(numQuestions);
+        double pG = Double.parseDouble(passingGrade);
+
         FakeDB db = new FakeDB();
         questionCounter = 0;
-        questionList = db.getQuestionsTest1();
-        result = new Results(questionList);
+        questionList = db.getQuestionsTest1(nQ);
+        result = new Results(questionList, (int) pG);
         questionCounterTotal = questionList.size();
-        //Collections.shuffle(questionList);
+        Collections.shuffle(questionList);
 
         showNextQuestion();
     }

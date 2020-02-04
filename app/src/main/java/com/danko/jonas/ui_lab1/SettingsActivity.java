@@ -59,20 +59,20 @@ public class SettingsActivity extends AppCompatActivity {
             RadioButton rbSelected = findViewById(radioGroup.getCheckedRadioButtonId());
             String numQuestions = rbSelected.getText().toString();
             //int numQuestions = radioGroup.indexOfChild(rbSelected) + 1;
-            //Log.d("tag", numQuestions);
+            Log.d("tag", numQuestions);
             //int numQ = Integer.getInteger(numQuestions);
             String test;
             test = editTextPassingGrade.getText().toString();
             if(test.matches("")){
                 Toast.makeText(SettingsActivity.this, "Please give an input for passing grade", Toast.LENGTH_SHORT).show();
             }
-            checkPassingGrade();
+            checkPassingGrade(numQuestions);
         }else{
             Toast.makeText(SettingsActivity.this, "Please select an option for number of questions.", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void checkPassingGrade(){
+    private void checkPassingGrade(String numQuestions){
         String passingGrade;
         passingGrade = editTextPassingGrade.getText().toString();
         if (passingGrade.matches("")){
@@ -86,11 +86,21 @@ public class SettingsActivity extends AppCompatActivity {
         //Log.d("tag", passingGrade);
 
         if(pG>=50 && pG<=100){
-            backToMain();
+            main(pG,numQuestions);
         }
         else{
             Toast.makeText(SettingsActivity.this, "Please enter a passing grade greater than 50 and less than 100.", Toast.LENGTH_SHORT).show();
         }
         Log.d("tag", "its working");
+    }
+
+    private void main(double passingGrade, String numQuestions){
+        String pass = String.valueOf(passingGrade);
+        Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("PASSING_GRADE", pass);
+        bundle.putString("NUM_QUESTIONS", numQuestions);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }
